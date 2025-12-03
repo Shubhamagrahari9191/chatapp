@@ -1,4 +1,6 @@
+// Replace 'http://localhost:8000' with your Render backend URL after deployment
 const socket = io('http://localhost:8000');
+// const socket = io('https://your-render-app-name.onrender.com');
 
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
@@ -7,11 +9,11 @@ var audio = new Audio('notef2.mp3');
 
 // Prompt the user for their name immediately when the script loads
 const name = prompt("Enter your name to join");
-    socket.emit('new-user-joined', name);
-    
-    socket.on('user-joined', name => {
-        append(`${name} joined the chat`, 'right');
-    });
+socket.emit('new-user-joined', name);
+
+socket.on('user-joined', name => {
+    append(`${name} joined the chat`, 'right');
+});
 
 
 // Function to append messages to the chat container
