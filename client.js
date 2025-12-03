@@ -1,5 +1,5 @@
 // Replace 'http://localhost:8000' with your Render backend URL after deployment
-const socket = io('http://localhost:8000');
+const socket = io('https://schat-7wiw.onrender.com');
 // const socket = io('https://your-render-app-name.onrender.com');
 
 const form = document.getElementById('send-container');
