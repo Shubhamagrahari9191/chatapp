@@ -4,30 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>schat-</title>
-    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <title>iDiscuss Chat</title>
+    <script defer src="/socket.io/socket.io.js"></script>
     <script defer src="client.js"></script>
-
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
 </head>
 
 <body>
-    <nav>
-        <img class="logog" src="logo2.jpg" alt="">
-        <h1>Welcome to idiscuss Schat App</h1>
+    <div class="app-container">
+        <header class="chat-header">
+            <div class="logo-container">
+                <img class="logo" src="logo2.jpg" alt="Logo">
+            </div>
+            <div class="header-info">
+                <h1>iDiscuss Chat</h1>
+                <span id="status-text">Connected</span>
+            </div>
+        </header>
 
-    </nav>
-    <div class="container">
-        <!--<div class="message right">Shubham: how are you</div>
-        <div class="message left">Chaudhary: bro I am fine. How about you</div> !-->
+        <!-- Admin Requests Area -->
+        <div id="admin-requests" class="admin-requests" style="display: none;">
+            <h3>Join Requests</h3>
+            <div id="requests-list"></div>
+        </div>
 
+        <div class="chat-window">
+            <div class="container">
+                <!-- Messages will be appended here -->
+            </div>
+        </div>
 
+        <div class="input-area">
+            <form action="#" id="send-container">
+                <button class="btn" type="button" id="emoji-btn">😀</button>
+                <button class="btn" type="button" id="media-btn">📎</button>
+                <input type="file" id="media-input" style="display: none;">
+                <input type="text" name="messageInp" id="messageInp" placeholder="Type a message..." autocomplete="off">
+                <button class="btn" type="submit">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
     </div>
-    <div class="send">
-        <form action="#" id="send-container">
-            <input type="text" name="messageInp" id="messageInp" required height="100" width="500">
-            <button class="btn" type="submit">Send</button>
-        </form>
+
+    <!-- Waiting Room Overlay -->
+    <div id="waiting-screen" class="waiting-screen" style="display: none;">
+        <div class="waiting-content">
+            <div class="spinner"></div>
+            <h2>Waiting for Approval</h2>
+            <p>The host will let you in shortly...</p>
+        </div>
     </div>
 </body>
 
