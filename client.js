@@ -217,8 +217,8 @@ mediaInput.addEventListener('change', (e) => {
     if (!file) return;
 
     // Simple validation
-    if (file.size > 2 * 1024 * 1024) { // 2MB limit for demo
-        alert('File is too large for this demo (Max 2MB)');
+    if (file.size > 1024 * 1024 * 1024) { // 1GB limit
+        alert('File is too large (Max 1GB)');
         return;
     }
 
