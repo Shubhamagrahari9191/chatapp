@@ -21,5 +21,8 @@
   "repository": {
     "type": "git",
     "url": "This is a node server for our schat application "
+  },
+  "engines": {
+    "node": ">=14.x"
   }
 }
